@@ -1,4 +1,5 @@
 var audio;
+var request = new ajaxRequest();
 
 //Hide Pause Initially
 $('#pause').hide();
@@ -23,7 +24,7 @@ function initAudio(element){
     $('#audio-player .artist').text(artist);
 	
 	//Insert Cover Image
-	$('img.cover').attr('src','images/covers/' + cover);
+	$('img.cover').attr('src','img/covers/' + cover);
 	
 	$('#playlist li').removeClass('active');
     element.addClass('active');
@@ -113,3 +114,52 @@ function showDuration(){
 		$('#progress').css('width',value+'%');
 	});
 }
+
+function ajaxRequest(){
+    //Crear array() con cadenas para creación de objeto ActiveX
+    //en caso de navegadores antiguos de Internet Explorer
+    var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; 
+    //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+    if(window.ActiveXObject){ 
+        for(var i=0; i<activexmodes.length; i++){
+            try{
+                return new ActiveXObject(activexmodes[i]);
+            }
+            catch(e){
+                return false;
+            }
+        }
+    }
+    // Si se está usando Chrome, Mozilla, Safari, Opera, etc.
+    else if (window.XMLHttpRequest){ 
+        console.log("Creando Peticion");
+        return new XMLHttpRequest();
+    }
+    else{
+        return false;
+    }
+}
+
+request.onreadystatechange = function(){
+    if(request.readyState==4){
+        if(request.status==200 || window.location.href.indexOf("http")==-1){
+			var jsondata = JSON.parse(request.responseText);
+			console.log(jsondata);
+			var rssentries = jsondata.canciones;
+			console.log(rssentries);
+            var output = "";
+            for(var i=0; i<rssentries.length; i++){
+				console.log(rssentries.Titulo);
+				output += "<li song=\"" + rssentries[i].Cancion + "\""+" cover=\"" + rssentries[i].Cover + "\""+" artist=\"" + rssentries[i].Artista + "\""+";\" >"+rssentries[i].Titulo+"</li>";
+				console.log(output);
+            }
+            document.getElementById("playlist").innerHTML=output;
+        }
+        else{
+            alert("Ha ocurrido un error mientras se realizaba la petición");
+        }
+    }
+}
+
+request.open("GET", "json/musica.json", true);
+request.send(null);

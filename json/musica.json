@@ -1,0 +1,47 @@
+{
+    "title":"Reproductor de Musica",
+    "canciones":[
+        {
+            "Titulo":"Till I Collapse",
+            "Artista":"Eminem",
+            "Cancion":"Eminem - Till I Collapse [HD].m4a",
+            "Cover":"EminemShow.png"
+        },
+        {
+            "Titulo":"DUNE",
+            "Artista":"HACHI",
+            "Cancion":"ハチ MV「砂の惑星 feat.初音ミク」HACHI - DUNE ft.Miku Hatsune.m4a",
+            "Cover":"DUNE.jpg"
+        },
+        {
+            "Titulo":"Easy Way Out",
+            "Artista":"Low Roar",
+            "Cancion":"Low Roar - 'Easy Way Out'.m4a",
+            "Cover":"easywayout.jpg"
+        },
+        {
+            "Titulo":"Komm Susser Tod",
+            "Artista":"ARIANNE",
+            "Cancion":"The End Of Evangelion - Komm Süsser Tod.m4a",
+            "Cover":"kommsusser.jpg"
+        },
+        {
+            "Titulo":"Asylum for the Feelings",
+            "Artista":"Silent Poets",
+            "Cancion":"Silent Poets - Asylums for the Feeling feat. Leila Adu (Death Stranding).m4a",
+            "Cover":"silentpoets.jpg"
+        },
+        {
+            "Titulo":"Take Flight",
+            "Artista":"Lindsey Stirling",
+            "Cancion":"Lindsey Stirling - Take Flight (OnlyAudio).m4a",
+            "Cover":"takeflight.jpg"
+        },
+        {
+            "Titulo":"Unknown Mother Goose",
+            "Artista":"wowaka",
+            "Cancion":"【Wowaka】Unknown Mother Goose - eng sub 【Hatsune Miku】.m4a",
+            "Cover":"unkmotherGoose.jpg"
+        }
+    ]
+}
